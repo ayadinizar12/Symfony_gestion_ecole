@@ -1,0 +1,207 @@
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- The above 4 meta tags must come first in the head; any other head content must come after these tags -->
+
+    <!-- Title -->
+    <title>ISCHOOL</title>
+
+    <!-- Favicon -->
+    <link rel="icon" href="{{ asset('logo/i.ico') }}">
+
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="{{ asset('FrontOffice/style.css')}}">
+    <link rel="stylesheet" href="{{ asset('FrontOffice/css/bootstrap.min.css')}}">
+
+</head>
+<body>
+<div class="preloader d-flex align-items-center justify-content-center">
+    <div class="lds-ellipsis">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
+</div>
+<header class="header-area">
+    <!-- Navbar Area -->
+    <div class="oneMusic-main-menu">
+        <div class="classy-nav-container breakpoint-off">
+            <div class="container">
+                <!-- Menu -->
+                <nav class="classy-navbar justify-content-between" id="oneMusicNav">
+
+                    <!-- Nav brand -->
+                    <a href="{{ path('homepage') }}" class="nav-brand"><img src="{{ asset('logo/logo.ico') }}" alt=""></a>
+
+                    <!-- Navbar Toggler -->
+                    <div class="classy-navbar-toggler">
+                        <span class="navbarToggler"><span></span><span></span><span></span></span>
+                    </div>
+
+                    <!-- Menu -->
+                    <div class="classy-menu">
+
+                        <!-- Close Button -->
+                        <div class="classycloseIcon">
+                            <div class="cross-wrap"><span class="top"></span><span class="bottom"></span></div>
+                        </div>
+
+                        <!-- Nav Start -->
+                        <div class="classynav">
+                            <ul>
+                                <li><a href="{{ path('homepage') }}" style="margin-top: 24px">Home</a></li>
+                            </ul>
+
+                            <!-- Login/Register & Cart Button -->
+                            <div class="login-register-cart-button d-flex align-items-center">
+                                <!-- Login/Register -->
+                                <div class="login-register-btn mr-50">
+                                    <a href="{{ path('fos_user_security_login') }}" id="loginBtn">Login</a>
+                                </div>
+
+                            </div>
+                        </div>
+                        <!-- Nav End -->
+
+                    </div>
+                </nav>
+            </div>
+        </div>
+    </div>
+</header>
+<section class="breadcumb-area bg-img bg-overlay" style="background-image: url({{ asset('FrontOffice/img/3.jpg')}})">
+    <div class="bradcumbContent">
+        <p>See what’s new</p>
+        <h2>Register</h2>
+    </div>
+</section>
+
+
+
+<section class="login-area section-padding-100">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-12 col-lg-8">
+                <div class="login-content">
+                    <h3>Welcome Back</h3>
+                    <!-- Login Form -->
+                    <div class="login-form">
+
+                        {% trans_default_domain 'FOSUserBundle' %}
+
+                        {{ form_start(form, {'method': 'post', 'action': path('fos_user_registration_register'), 'attr': {'class': 'fos_user_registration_register'}}) }}
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <label for="inputEmail4">nom</label>
+                                {{ form_widget(form.nom, { 'attr': {'class': 'form-control'} }) }}
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="inputPassword4">prenom</label>
+                                {{ form_widget(form.prenom, { 'attr': {'class': 'form-control'} }) }}
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="inputAddress">Email</label>
+                            {{ form_widget(form.email, { 'attr': {'class': 'form-control'} }) }}
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <label for="inputEmail4">Password</label>
+                                {{ form_widget(form.plainPassword.first, { 'attr': {'class': 'form-control'} }) }}
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="inputPassword4">Confirm password</label>
+                                {{ form_widget(form.plainPassword.second, { 'attr': {'class': 'form-control'} }) }}
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <label for="inputCity">Username</label>
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text" id="inputGroupPrepend2">@</span>
+                                    </div>
+                                    {{ form_widget(form.username, { 'attr': {'class': 'form-control'} }) }}
+                                </div>
+                            </div>
+                            <div class="form-group col-md-3">
+                                <label for="inputState">date_naissance</label>
+                                {{ form_widget(form.date_naissance, { 'attr': {'class': 'form-control'} }) }}
+                            </div>
+                            <div class="form-group col-md-3">
+                                <label for="inputZip">Sexe</label>
+                                {{ form_widget(form.sexe, { 'attr': {'class': 'form-control'} }) }}
+
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <label for="inputCity">num_tel</label>
+                                <div class="input-group">
+                                    {{ form_widget(form.num_tel, { 'attr': {'class': 'form-control'} }) }}
+                                </div>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="inputCity">cin</label>
+                                <div class="input-group">
+                                    {{ form_widget(form.cin, { 'attr': {'class': 'form-control'} }) }}
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <label for="inputZip">Picture</label>
+                            <br>
+                            {{ form_widget(form.photo) }}
+
+                        </div>
+                        <div class="form-row" style="margin-top: 24px;">
+                            {{ form_widget(form.valider, { 'attr': {'class': 'btn btn-dark'} }) }}
+
+                        </div>
+                    </div>
+                    {{ form_end(form) }}
+
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+</section>
+
+
+
+
+<footer class="footer-area">
+    <div class="container">
+        <div class="row d-flex flex-wrap align-items-center">
+            <div class="col-12 col-md-6">
+                <a href="#"><img src="{{ asset('FrontOffice/img/core-img/logo.png') }}" alt=""></a>
+            </div>
+
+            <div class="col-12 col-md-6">
+                <div class="footer-nav">
+
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+<!-- ##### Footer Area Start ##### -->
+
+<!-- ##### All Javascript Script ##### -->
+<!-- jQuery-2.2.4 js -->
+<script src="{{ asset('FrontOffice/js/jquery/jquery-2.2.4.min.js') }}"></script>
+<!-- Popper js -->
+<script src="{{ asset('FrontOffice/js/bootstrap/popper.min.js') }}"></script>
+<!-- Bootstrap js -->
+<script src="{{ asset('FrontOffice/js/bootstrap/bootstrap.min.js') }}"></script>
+<!-- All Plugins js -->
+<script src="{{ asset('FrontOffice/js/plugins/plugins.js') }}"></script>
+<!-- Active js -->
+<script src="{{ asset('FrontOffice/js/active.js') }}"></script>
+</body>
